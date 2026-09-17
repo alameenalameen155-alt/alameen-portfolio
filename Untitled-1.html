@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S Alameen | Electronics &amp; Communication Engineer</title>
+<meta name="description" content="Portfolio of S Alameen — Electronics &amp; Communication Engineer specialising in embedded systems, VLSI/FPGA design and industrial automation.">
+<style>
+  :root{
+    --bg:#0b1120;
+    --bg-soft:#111a2e;
+    --card:#151f38;
+    --line:#233152;
+    --text:#e6ecf7;
+    --muted:#9aa9c4;
+    --accent:#38bdf8;
+    --accent-2:#22d3ee;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,17,32,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;letter-spacing:.14em;font-size:.95rem}
+  .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul a{color:var(--muted);font-size:.9rem;font-weight:500}
+  nav ul a:hover{color:var(--text);text-decoration:none}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);
+    border-radius:8px;padding:6px 10px;font-size:1.1rem;cursor:pointer}
+
+  /* HERO */
+  .hero{padding:90px 0 70px;border-bottom:1px solid var(--line)}
+  .eyebrow{color:var(--accent);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+  .hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.15;margin:14px 0 6px;font-weight:700}
+  .hero h2{font-size:clamp(1.05rem,2.6vw,1.5rem);color:var(--muted);font-weight:500;margin-bottom:22px}
+  .hero p{color:var(--muted);max-width:60ch;margin-bottom:30px}
+  .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.92rem;
+    border:1px solid var(--accent);transition:.2s;
+  }
+  .btn-primary{background:var(--accent);color:#06121f}
+  .btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);text-decoration:none}
+  .btn-ghost{color:var(--accent);background:transparent}
+  .btn-ghost:hover{background:rgba(56,189,248,.1);text-decoration:none}
+
+  .stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:44px}
+  .stat b{display:block;font-size:1.6rem;color:var(--accent)}
+  .stat span{font-size:.82rem;color:var(--muted)}
+
+  /* SECTIONS */
+  section{padding:74px 0;border-bottom:1px solid var(--line)}
+  .s-head{margin-bottom:38px}
+  .s-head h3{font-size:1.65rem;font-weight:700}
+  .s-head .bar{width:54px;height:3px;background:var(--accent);border-radius:2px;margin-top:10px}
+
+  .grid-2{display:grid;grid-template-columns:1.25fr .9fr;gap:34px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;
+    transition:.22s;
+  }
+  .card:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .card h4{font-size:1.08rem;margin-bottom:4px}
+  .card .meta{color:var(--accent);font-size:.85rem;font-weight:600;margin-bottom:12px}
+  .card p, .card li{color:var(--muted);font-size:.94rem}
+  .card ul{margin:0;padding-left:18px}
+  .card ul li{margin-bottom:7px}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .tag{
+    font-size:.76rem;padding:5px 11px;border-radius:99px;
+    background:rgba(56,189,248,.1);color:var(--accent);border:1px solid rgba(56,189,248,.25);
+    font-weight:500;
+  }
+
+  .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+
+  /* TIMELINE */
+  .tl{border-left:2px solid var(--line);padding-left:26px;position:relative}
+  .tl::before{
+    content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;
+    border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(56,189,248,.18);
+  }
+
+  /* CERTS */
+  .cert{display:flex;gap:13px;align-items:flex-start;background:var(--bg-soft);
+    border:1px solid var(--line);border-radius:11px;padding:16px 18px}
+  .cert .dot{color:var(--accent);font-size:1.1rem;line-height:1.5}
+  .cert b{font-size:.95rem;display:block}
+  .cert small{color:var(--muted);font-size:.83rem}
+
+  /* CONTACT */
+  .contact-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
+  .contact-row .card{flex:1 1 230px}
+
+  footer{padding:30px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+  @media(max-width:860px){
+    .grid-2{grid-template-columns:1fr}
+    nav ul{
+      display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;
+      gap:0;background:var(--bg-soft);border-bottom:1px solid var(--line);padding:8px 24px 16px;
+    }
+    nav ul.open{display:flex}
+    nav ul li{padding:10px 0;border-bottom:1px solid var(--line)}
+    .menu-btn{display:block}
+    .hero{padding:60px 0 50px}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">S <span>ALAMEEN</span></div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <ul id="navList">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Electronics &amp; Communication Engineer</p>
+    <h1>Building reliable hardware,<br>from silicon to shop floor.</h1>
+    <h2>Embedded Systems · VLSI &amp; FPGA Design · Industrial Automation</h2>
+    <p>
+      ECE graduate (8.69 CGPA) with NPI process engineering experience at Foxconn Technology India
+      and hands-on project work across microcontroller firmware, Verilog RTL design and PLC/SCADA
+      automation. Currently seeking an entry-level core engineering role.
+    </p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-ghost" href="mailto:alameenalameen1559@gmail.com">Get in Touch</a>
+      <a class="btn btn-ghost" href="S_Alameen_Resume.pdf" download>Download Résumé</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>8.69</b><span>CGPA / 10</span></div>
+      <div class="stat"><b>4+</b><span>Engineering Projects</span></div>
+      <div class="stat"><b>7</b><span>Certifications</span></div>
+      <div class="stat"><b>Foxconn</b><span>NPI Internship</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="s-head"><h3>About Me</h3><div class="bar"></div></div>
+    <div class="grid-2">
+      <div>
+        <p style="color:var(--muted);margin-bottom:16px">
+          I'm an Electronics &amp; Communication Engineering graduate from Mohamed Sathak Engineering
+          College, Kilakarai, with a strong grounding in analog and digital electronics, digital design
+          and microcontroller programming.
+        </p>
+        <p style="color:var(--muted);margin-bottom:16px">
+          During my NPI process engineering internship at Foxconn Technology India, I worked directly on
+          the production line — verifying assembly processes, running root cause analysis on live defects
+          and reporting failure trends to cross-functional teams. That experience taught me how design
+          decisions translate into real manufacturing yield.
+        </p>
+        <p style="color:var(--muted)">
+          Alongside that, I've built embedded IoT systems on ESP8266 and Arduino, implemented
+          image-processing algorithms in Verilog on Xilinx Vivado, and completed an ASIC design flow
+          through synthesis, STA, floorplanning and physical verification on SCL 180nm. I'm open to
+          relocation and keen to work where hardware meets real products.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Education</h4>
+        <div class="meta">B.E. Electronics &amp; Communication Engineering</div>
+        <p style="margin-bottom:6px"><strong style="color:var(--text)">Mohamed Sathak Engineering College</strong><br>Kilakarai, Tamil Nadu</p>
+        <p>CGPA: <strong style="color:var(--accent)">8.69 / 10</strong></p>
+        <div class="tags">
+          <span class="tag">Digital Design</span>
+          <span class="tag">Signals &amp; Systems</span>
+          <span class="tag">Microprocessors</span>
+          <span class="tag">VLSI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="s-head"><h3>Technical Skills</h3><div class="bar"></div></div>
+    <div class="skill-grid">
+      <div class="card">
+        <h4>Programming &amp; Firmware</h4>
+        <div class="tags">
+          <span class="tag">Embedded C</span><span class="tag">C++</span>
+          <span class="tag">Arduino</span><span class="tag">ESP8266</span>
+          <span class="tag">STM32 / CubeIDE</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>VLSI &amp; Digital Design</h4>
+        <div class="tags">
+          <span class="tag">Verilog HDL</span><span class="tag">Xilinx Vivado</span>
+          <span class="tag">Cadence</span><span class="tag">RTL Design</span>
+          <span class="tag">Synthesis &amp; STA</span><span class="tag">RISC-V RV32I</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Protocols &amp; Interfacing</h4>
+        <div class="tags">
+          <span class="tag">UART</span><span class="tag">SPI</span><span class="tag">I2C</span>
+          <span class="tag">Sensor Interfacing</span><span class="tag">Hardware Debugging</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Industrial Automation</h4>
+        <div class="tags">
+          <span class="tag">PLC Fundamentals</span><span class="tag">SCADA</span>
+          <span class="tag">HMI Basics</span><span class="tag">Process Automation</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Engineering Practices</h4>
+        <div class="tags">
+          <span class="tag">Root Cause Analysis</span><span class="tag">Failure Analysis</span>
+          <span class="tag">Quality Inspection</span><span class="tag">Process Improvement</span>
+          <span class="tag">NPI Builds</span>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Tools &amp; Other</h4>
+        <div class="tags">
+          <span class="tag">MATLAB</span><span class="tag">Microsoft Excel</span>
+          <span class="tag">Cisco Packet Tracer</span><span class="tag">Arduino IDE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="s-head"><h3>Experience</h3><div class="bar"></div></div>
+    <div class="tl">
+      <div class="card">
+        <h4>NPI Process Engineering Intern</h4>
+        <div class="meta">Foxconn Technology India Pvt. Ltd. · Jul 2026</div>
+        <ul>
+          <li>Supported New Product Introduction (NPI) builds by monitoring production line activities and verifying assembly processes.</li>
+          <li>Performed failure analysis and Root Cause Analysis (RCA) on production defects, contributing to reduced rework and line downtime.</li>
+          <li>Conducted quality inspections and flagged manufacturing issues in real time during production runs.</li>
+          <li>Prepared daily production and failure-analysis reports in Microsoft Excel for cross-functional review.</li>
+          <li>Collaborated with production and testing teams to improve process efficiency and product quality.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">NPI</span><span class="tag">RCA</span>
+          <span class="tag">Failure Analysis</span><span class="tag">Quality Control</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="s-head"><h3>Projects</h3><div class="bar"></div></div>
+    <div class="cards">
+      <div class="card">
+        <h4>IoT-Based Smart Distance Monitoring System</h4>
+        <div class="meta">ESP8266 · Embedded C</div>
+        <p>Developed Embedded C firmware on the ESP8266 and interfaced an ultrasonic sensor for
+        real-time distance monitoring with threshold-based alerting.</p>
+        <div class="tags"><span class="tag">ESP8266</span><span class="tag">Embedded C</span><span class="tag">IoT</span><span class="tag">Sensors</span></div>
+      </div>
+      <div class="card">
+        <h4>FPGA-Based Image Processing &amp; Digital Circuit Design</h4>
+        <div class="meta">Verilog · Xilinx Vivado · Cadence</div>
+        <p>Implemented image-processing algorithms in Verilog for hardware-level acceleration on FPGA,
+        and designed plus simulated analog and digital circuits in Cadence for performance and timing analysis.</p>
+        <div class="tags"><span class="tag">Verilog</span><span class="tag">Vivado</span><span class="tag">Cadence</span><span class="tag">Timing Analysis</span></div>
+      </div>
+      <div class="card">
+        <h4>Ultrasonic Radar Simulation System</h4>
+        <div class="meta">Arduino · Servo · UART</div>
+        <p>Built a servo-driven ultrasonic scanning system that streams angle–distance data over UART
+        to a host for real-time radar-style visualisation.</p>
+        <div class="tags"><span class="tag">Arduino</span><span class="tag">UART</span><span class="tag">Data Visualisation</span></div>
+      </div>
+      <div class="card">
+        <h4>Clap-Activated Light Control System</h4>
+        <div class="meta">Arduino · Sound Sensor · Relay</div>
+        <p>Designed a sound-controlled automation circuit using an Arduino, sound sensor and relay module,
+        with debouncing logic to reject false triggers from ambient noise.</p>
+        <div class="tags"><span class="tag">Arduino</span><span class="tag">Relay Control</span><span class="tag">Debouncing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="s-head"><h3>Certifications</h3><div class="bar"></div></div>
+    <div class="cards">
+      <div class="cert"><span class="dot">▹</span><div><b>ASIC Design &amp; FPGA</b><small>RTL design in Verilog, synthesis, static timing analysis, floorplanning, routing and physical verification on SCL 180nm.</small></div></div>
+      <div class="cert"><span class="dot">▹</span><div><b>VLSI &amp; RISC-V</b><small>Verilog HDL, VLSI SoC design and the RISC-V RV32I base ISA.</small></div></div>
+      <div class="cert"><span class="dot">▹</span><div><b>Digital Design using Xilinx Vivado</b><small>Chips to Startup (C2S) Programme.</small></div></div>
+      <div class="cert"><span class="dot">▹</span><div><b>Embedded Systems Design</b><small>Microcontroller fundamentals and embedded software development.</small></div></div>
+      <div class="cert"><span class="dot">▹</span><div><b>Networking with Cisco Packet Tracer</b><small>Routing, VLANs, IP addressing, DHCP and TCP/IP.</small></div></div>
+      <div class="cert"><span class="dot">▹</span><div><b>Industrial Automation</b><small>LinkedIn Learning.</small></div></div>
+      <div class="cert"><span class="dot">▹</span><div><b>SCADA: Collect, Analyze &amp; Visualize Data</b><small>Industrial automation data systems — LinkedIn Learning.</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="s-head"><h3>Get In Touch</h3><div class="bar"></div></div>
+    <p style="color:var(--muted);max-width:60ch;margin-bottom:24px">
+      I'm actively looking for entry-level opportunities in electronics, embedded systems, VLSI or core
+      engineering, and I'm open to relocating. Feel free to reach out.
+    </p>
+    <div class="contact-row">
+      <div class="card"><h4>Email</h4><p><a href="mailto:alameenalameen1559@gmail.com">alameenalameen1559@gmail.com</a></p></div>
+      <div class="card"><h4>Phone</h4><p><a href="tel:+918015614870">+91 80156 14870</a></p></div>
+      <div class="card"><h4>LinkedIn</h4><p><a href="https://linkedin.com/in/alameen-s-185181353" target="_blank" rel="noopener">alameen-s</a></p></div>
+      <div class="card"><h4>Location</h4><p>Ramanathapuram, Tamil Nadu<br><span style="font-size:.85rem">Open to relocate</span></p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> S Alameen · Electronics &amp; Communication Engineer</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const btn = document.getElementById('menuBtn'), list = document.getElementById('navList');
+  btn.addEventListener('click', () => list.classList.toggle('open'));
+  list.querySelectorAll('a').forEach(a => a.addEventListener('click', () => list.classList.remove('open')));
+</script>
+
+</body>
+</html>
